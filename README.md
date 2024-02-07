@@ -1,4 +1,4 @@
-# Elaborato_SW_ENG Link della consegna: https://elearning.unibs.it/pluginfile.php/824904/mod_resource/content/2/Elaborato_SE_2023_24.pdf
+# Elaborato_SW_ENG 
 
 # Generalità: 
 L’applicazione è tesa a supportare lo scambio di ore di prestazioni d’opera relative a diverse attività afferenti ad alcune categorie, dette categorie foglia, stabilite dal configuratore.
