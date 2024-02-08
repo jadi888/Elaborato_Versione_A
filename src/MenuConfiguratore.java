@@ -13,20 +13,40 @@ public class MenuConfiguratore {
     }
 
     public void avviaMenu() {
-        System.out.println(Messaggi.BENVENUTO_CONFIGURATORE);
-        System.out.println("Sei un nuovo utente o sei già registrato?");
-        System.out.println("1. Nuovo utente");
-        System.out.println("2. Utente già registrato");
-        System.out.print("Inserisci il numero corrispondente: ");
-        int sceltaIniziale = scanner.nextInt();
-        scanner.nextLine();
+        int sceltaIniziale;
 
-        switch (sceltaIniziale) {
-            case 1 -> nuovoAccesso();
-            case 2 -> accessoRegistrato();
-            default -> System.out.println("Scelta non valida. Uscita.");
-        }
+        do {
+            System.out.println(Messaggi.BENVENUTO_CONFIGURATORE);
+            System.out.println("Sei un nuovo utente o sei già registrato?");
+            System.out.println("1. Nuovo utente");
+            System.out.println("2. Utente già registrato");
+            System.out.println("3. Chiudi programma");
+            System.out.print("Inserisci il numero corrispondente: ");
+
+            // Assicurati che l'utente inserisca un numero
+            while (!scanner.hasNextInt()) {
+                System.out.println("Inserisci un numero valido.");
+                scanner.next();  // Consuma l'input non valido
+            }
+
+            sceltaIniziale = scanner.nextInt();
+            scanner.nextLine(); // Consuma il newline residuo dopo nextInt()
+
+            switch (sceltaIniziale) {
+                case 1 -> nuovoAccesso();
+                case 2 -> accessoRegistrato();
+                case 3 -> {
+                    System.out.println("Uscita definitiva.");
+                    System.exit(0);
+                }
+                default -> System.out.println("Scelta non valida. Riprova.");
+            }
+        } while (sceltaIniziale < 1 || sceltaIniziale > 3);
+
+        // Qui puoi continuare con il resto del tuo programma
     }
+
+
 
     private void nuovoAccesso() {
         int tentativiMassimi = 3;
@@ -79,19 +99,18 @@ public class MenuConfiguratore {
             scanner.nextLine();
 
             switch (scelta) {
-                case 1:
+                case 1 -> {
                     configuratore.introduceNuovoComprensorio();
                     sceltaValida = true;
-                    break;
-                case 2:
-                    // Aggiungi altre opzioni secondo necessità
-                    sceltaValida = true;
-                    break;
-                case 3:
+                }
+                case 2 ->
+                        // Aggiungi altre opzioni secondo necessità
+                        sceltaValida = true;
+                case 3 -> {
                     System.out.println("Chiusura definitiva del programma.");
                     System.exit(0);
-                default:
-                    System.out.println("Scelta non valida, scegli tra quelle disponibili.");
+                }
+                default -> System.out.println("Scelta non valida, scegli tra quelle disponibili.");
             }
         } while (!sceltaValida);
     }
