@@ -20,7 +20,10 @@ public class RegistrazioneCredenziali {
     }
 
     private boolean isUsernameUnico(String username) {
-        return usernameRegistrati.stream().noneMatch(c -> c.startsWith(username));
+        return this.usernameRegistrati.stream().noneMatch(c -> {
+            String storedUsername = c.split("\\s+", 2)[0].trim();
+            return storedUsername.equals(username);
+        });
     }
 
     private List<String> caricaUsernameDaFile() {
