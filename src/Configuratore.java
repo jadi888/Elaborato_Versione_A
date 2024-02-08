@@ -3,8 +3,8 @@ import java.util.List;
 public class Configuratore {
     private final Autenticatore autenticatore;
 
-    public Configuratore(List<String> credenzialiRegistrati) {
-        this.autenticatore = new Autenticatore(credenzialiRegistrati);
+    public Configuratore(List<String> credenzialiRegistrate) {
+        this.autenticatore = new Autenticatore(credenzialiRegistrate);
     }
 
     public Autenticatore getAutenticatore() {

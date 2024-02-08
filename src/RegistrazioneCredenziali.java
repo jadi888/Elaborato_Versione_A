@@ -38,7 +38,7 @@ public class RegistrazioneCredenziali {
                 }
             }
         } catch (IOException e) {
-            System.err.println("Errore durante il caricamento degli username da file.");
+            System.err.println(Messaggi.ERRORE_CARICAMENTO_UTENTI);
             e.printStackTrace();
         }
 
@@ -49,7 +49,7 @@ public class RegistrazioneCredenziali {
         try (PrintWriter writer = new PrintWriter(new FileWriter("credenziali.txt", true))) {
             writer.println(username + " " + password);
         } catch (IOException e) {
-            System.err.println("Errore durante il salvataggio delle credenziali su file.");
+            System.err.println(Messaggi.ERRORE_SALVATAGGIO_CREDENZIALI);
             e.printStackTrace();
         }
     }

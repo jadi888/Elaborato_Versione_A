@@ -15,7 +15,7 @@ public class Autenticatore {
                 this.primoAccesso = false;
                 return true;
             } else {
-                System.out.println("Accesso negato. Credenziali errate per il primo accesso.");
+                System.out.println(Messaggi.ACCESSO_NEGATO_PRIMO_ACCESSO);
                 return false;
             }
         }
@@ -38,7 +38,7 @@ public class Autenticatore {
         }
 
         // Se nessuna corrispondenza è stata trovata, stampa un messaggio di errore
-        System.out.println("Accesso negato. Credenziali errate.");
+        System.out.println(Messaggi.ACCESSO_NEGATO_ERRATE);
         return false;
     }
 }

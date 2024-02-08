@@ -13,9 +13,7 @@ public class MenuConfiguratore {
     }
 
     public void avviaMenu() {
-        System.out.println("*******************************************");
-        System.out.println("*           Benvenuto Configuratore         *");
-        System.out.println("*******************************************");
+        System.out.println(Messaggi.BENVENUTO_CONFIGURATORE);
         System.out.println("Sei un nuovo utente o sei già registrato?");
         System.out.println("1. Nuovo utente");
         System.out.println("2. Utente già registrato");
@@ -41,55 +39,47 @@ public class MenuConfiguratore {
             String providedPassword = scanner.nextLine();
 
             if (configuratore.getAutenticatore().verificaPrimoAccesso(providedUsername, providedPassword, true)) {
-                System.out.println("Accesso riuscito! Benvenuto " + providedUsername);
+                System.out.println(Messaggi.ACCESSO_RIUSCITO + providedUsername.toUpperCase());
                 richiediRegistrazione();
                 return;
             }
 
-            System.out.println("*******************************************");
-            System.out.println("* Accesso negato. Credenziali errate.       *");
-            System.out.println("*******************************************");
+            System.out.println(Messaggi.ACCESSO_NEGATO_ERRATE);
             tentativiAttuali++;
             gestisciTentativi(tentativiMassimi, tentativiAttuali);
         } while (tentativiAttuali < tentativiMassimi);
     }
 
     private void accessoRegistrato() {
-        System.out.print("Inserisci username registrato: ");
+        System.out.print(Messaggi.RICHIESTA_USERNAME_REGISTRATO);
         String usernameRegistrato = scanner.nextLine();
-        System.out.print("Inserisci password registrata: ");
+        System.out.print(Messaggi.RICHIESTA_PASSWORD_REGISTRATA);
         String passwordRegistrata = scanner.nextLine();
 
         if (configuratore.getAutenticatore().verificaAccessoRegistrato(usernameRegistrato, passwordRegistrata)) {
-            System.out.println("Accesso riuscito! Benvenuto " + usernameRegistrato);
+            System.out.println(Messaggi.ACCESSO_RIUSCITO + usernameRegistrato.toUpperCase());
         } else {
             System.out.println("*******************************************");
-            System.out.println("* Accesso negato. Credenziali errate.       *");
+            System.out.println(Messaggi.ACCESSO_NEGATO_ERRATE);
             gestisciOpzioniErrore(false);
         }
     }
 
     private void richiediRegistrazione() {
-        System.out.println("*******************************************");
-        System.out.println("* È necessario completare la registrazione. *");
-        System.out.println("*******************************************");
+        System.out.println(Messaggi.REGISTRAZIONE_COMPLETA);
         boolean registrazioneSuccesso;
 
         do {
-            System.out.print("Inserisci nuovo username: ");
+            System.out.print(Messaggi.INSERISCI_NUOVO_USERNAME);
             String nuovoUsername = scanner.nextLine();
-            System.out.print("Inserisci nuova password: ");
+            System.out.print(Messaggi.INSERISCI_NUOVA_PASSWORD);
             String nuovaPassword = scanner.nextLine();
             registrazioneSuccesso = registrazioneCredenziali.registraCredenziali(nuovoUsername, nuovaPassword);
 
             if (!registrazioneSuccesso) {
-                System.out.println("*******************************************");
-                System.out.println("* Registrazione fallita. Riprova con credenziali diverse. *");
-                System.out.println("*******************************************");
+                System.out.println(Messaggi.REGISTRAZIONE_FALLITA);
             } else {
-                System.out.println("*******************************************");
-                System.out.println("* Registrazione completata con successo!    *");
-                System.out.println("*******************************************");
+                System.out.println(Messaggi.REGISTRAZIONE_COMPLETATA);
             }
         } while (!registrazioneSuccesso);
     }
@@ -125,9 +115,7 @@ public class MenuConfiguratore {
 
     private void gestisciTentativi(int tentativiMassimi, int tentativiAttuali) {
         if (tentativiAttuali >= tentativiMassimi) {
-            System.out.println("*******************************************");
-            System.out.println("* Numero massimo di tentativi raggiunto.    *");
-            System.out.println("* Uscita definitiva.                         *");
+            System.out.println(Messaggi.TENTATIVI_MAX_RAGGIUNTI);
             System.exit(0);
         }
 
