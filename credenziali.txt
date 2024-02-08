@@ -1,9 +1,2 @@
-mario_rossi password_di_mario
-maria_chob password
-omelda_meta password
-morad elmeskini
-mario_Rossi1 rossi
-username pw
-valentino rossi
-marco vivaldi
-maria pw
+
+maria chob

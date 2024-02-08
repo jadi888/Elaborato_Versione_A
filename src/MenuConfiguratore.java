@@ -40,7 +40,7 @@ public class MenuConfiguratore {
             System.out.print("Inserisci password fornita: ");
             String providedPassword = scanner.nextLine();
 
-            if (configuratore.getAutenticatore().verificaPrimoAccesso(providedUsername, providedPassword)) {
+            if (configuratore.getAutenticatore().verificaPrimoAccesso(providedUsername, providedPassword, true)) {
                 System.out.println("Accesso riuscito! Benvenuto " + providedUsername);
                 richiediRegistrazione();
                 return;
