@@ -6,15 +6,15 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         // Inizializza una lista vuota di credenziali registrate
-        List<String> credenzialiRegistrati;
+        List<String> credenzialiRegistrate;
         try {
-            credenzialiRegistrati = Files.readAllLines(Paths.get("credenziali.txt"));
+            credenzialiRegistrate = Files.readAllLines(Paths.get("credenziali.txt"));
         } catch (IOException e) {
             e.printStackTrace();
             return;
         }
 
-        MenuConfiguratore menuConfiguratore = new MenuConfiguratore(credenzialiRegistrati);
+        MenuConfiguratore menuConfiguratore = new MenuConfiguratore(credenzialiRegistrate);
         menuConfiguratore.avviaMenu();
         menuConfiguratore.chiudiScanner();
     }

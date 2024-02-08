@@ -58,11 +58,42 @@ public class MenuConfiguratore {
 
         if (configuratore.getAutenticatore().verificaAccessoRegistrato(usernameRegistrato, passwordRegistrata)) {
             System.out.println(Messaggi.ACCESSO_RIUSCITO + usernameRegistrato.toUpperCase());
+            gestisciMenuUtenteRegistrato();
         } else {
             System.out.println("*******************************************");
             System.out.println(Messaggi.ACCESSO_NEGATO_ERRATE);
             gestisciOpzioniErrore(false);
         }
+    }
+
+    private void gestisciMenuUtenteRegistrato() {
+        boolean sceltaValida = false;
+
+        do {
+            System.out.println("1. Introduci un nuovo comprensorio geografico");
+            System.out.println("2. Altro");
+            System.out.println("3. Torna indietro");
+            System.out.println("4. Chiudi definitivamente il programma");
+            System.out.print("Inserisci il numero corrispondente: ");
+            int scelta = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (scelta) {
+                case 1:
+                    configuratore.introduceNuovoComprensorio();
+                    sceltaValida = true;
+                    break;
+                case 2:
+                    // Aggiungi altre opzioni secondo necessità
+                    sceltaValida = true;
+                    break;
+                case 3:
+                    System.out.println("Chiusura definitiva del programma.");
+                    System.exit(0);
+                default:
+                    System.out.println("Scelta non valida, scegli tra quelle disponibili.");
+            }
+        } while (!sceltaValida);
     }
 
     private void richiediRegistrazione() {

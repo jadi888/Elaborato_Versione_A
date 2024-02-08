@@ -11,5 +11,10 @@ public class Configuratore {
         return this.autenticatore;
     }
 
-    // Aggiungi altri metodi specifici del Configuratore, se necessario
+    public void introduceNuovoComprensorio(){
+        MenuComprensorio menuComprensorio = new MenuComprensorio();
+        menuComprensorio.creaComprensorioDaConfiguratore();
+
+
+    }
 }
