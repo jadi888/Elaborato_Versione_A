@@ -1,0 +1,1 @@
+CategoriaNonFoglia{nome='musica', campo=Campo{nome='teoria', dominio=[storia, moderna, attuale], descrizioni={}}}

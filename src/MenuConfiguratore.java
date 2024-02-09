@@ -6,6 +6,7 @@ public class MenuConfiguratore {
     private final Configuratore configuratore;
     private final RegistrazioneCredenziali registrazioneCredenziali;
 
+
     public MenuConfiguratore(List<String> credenzialiRegistrati) {
         this.scanner = new Scanner(System.in);
         this.configuratore = new Configuratore(credenzialiRegistrati);
@@ -39,12 +40,26 @@ public class MenuConfiguratore {
                     System.out.println("Uscita definitiva.");
                     System.exit(0);
                 }
-                default -> System.out.println("Scelta non valida. Riprova.");
+                default -> {
+                    System.out.println("Scelta non valida. Riprova.");
+                    continue;
+                }
             }
-        } while (sceltaIniziale < 1 || sceltaIniziale > 3);
 
-        // Qui puoi continuare con il resto del tuo programma
+            // Dopo aver eseguito l'azione corrispondente alla scelta
+            System.out.print("Vuoi tornare indietro o chiudere il programma definitivamente? (1. Tornare indietro / 2. Chiudere definitivamente): ");
+            int risposta = scanner.nextInt();
+            scanner.nextLine(); // Consuma il newline residuo dopo nextInt()
+
+            if (risposta == 2) {
+                System.out.println("Uscita definitiva.");
+                System.exit(0);
+            }
+
+        } while (true);
     }
+
+
 
 
 
@@ -91,8 +106,8 @@ public class MenuConfiguratore {
 
         do {
             System.out.println("1. Introduci un nuovo comprensorio geografico");
-            System.out.println("2. Altro");
-            System.out.println("3. Torna indietro");
+            System.out.println("2. Introduci una nuova gerarchia di categorie");
+            System.out.println("3. Visualizza le categorie presenti");
             System.out.println("4. Chiudi definitivamente il programma");
             System.out.print("Inserisci il numero corrispondente: ");
             int scelta = scanner.nextInt();
@@ -103,10 +118,16 @@ public class MenuConfiguratore {
                     configuratore.introduceNuovoComprensorio();
                     sceltaValida = true;
                 }
-                case 2 ->
-                        // Aggiungi altre opzioni secondo necessità
-                        sceltaValida = true;
+                case 2 ->{
+                    configuratore.introduceNuovaGerarchiaCategorie();
+                        sceltaValida = true; }
                 case 3 -> {
+                    VisualizzatoreGerarchie visualizzatore = new VisualizzatoreGerarchie();
+                    visualizzatore.visualizzaAlberoGerarchie();
+                    sceltaValida = true;
+                }
+
+                case 4 -> {
                     System.out.println("Chiusura definitiva del programma.");
                     System.exit(0);
                 }

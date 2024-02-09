@@ -47,6 +47,6 @@ public class Messaggi {
 
     public static final String ERRORE_SALVATAGGIO_COMPRENSORIO = "Errore durante il salvataggio del comprensorio su file.";
 
-    public static final String SALVATAGGIO_COMPRENSORIO_SUCCESSO = "Comprensorio salvato con successo in";
+    public static final String SALVATAGGIO_COMPRENSORIO_SUCCESSO = "Comprensorio salvato con successo in ";
     // Aggiungi altre costanti di messaggi secondo necessità
 }

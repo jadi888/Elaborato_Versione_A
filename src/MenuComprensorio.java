@@ -56,7 +56,6 @@ public class MenuComprensorio {
         mostraInformazioniComprensorio(nuovoComprensorio);
         salvaComprensorioSuFile(nuovoComprensorio);
 
-
     }
 
     private List<String> scegliComuni(String regione, Map<String, List<String>> comuniPerRegione) {
